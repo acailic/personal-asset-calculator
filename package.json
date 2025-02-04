@@ -2,6 +2,7 @@
   "name": "personal-asset-calculator",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://acailic.github.io/personal-asset-calculator",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -18,6 +19,8 @@
     "sweetalert2": "^11.15.10"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -43,6 +46,7 @@
   },
   "devDependencies": {
     "@testing-library/user-event": "^14.6.1",
+    "gh-pages": "^6.3.0",
     "sharp": "^0.33.5"
   }
 }
