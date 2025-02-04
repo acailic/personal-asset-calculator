@@ -1,0 +1,51 @@
+{
+  "income": [
+    { "description": "Plata", "amount": 3500.0 },
+    { "description": "Freelance", "amount": 1200.0 },
+    { "description": "Dividende", "amount": 800.0 },
+    { "description": "Renta", "amount": 600.0 },
+    { "description": "Dodatni Poslovi", "amount": 400.0 },
+    { "description": "Investicije", "amount": 300.0 },
+    { "description": "Ostali Prihodi", "amount": 200.0 }
+  ],
+  "expenses": [
+    { "description": "Stanarina", "amount": 800.0 },
+    { "description": "Racuni", "amount": 250.0 },
+    { "description": "Hrana", "amount": 500.0 },
+    { "description": "Transport", "amount": 150.0 },
+    { "description": "Osiguranje", "amount": 100.0 },
+    { "description": "Internet/Telefon", "amount": 80.0 },
+    { "description": "Teretana", "amount": 40.0 },
+    { "description": "Netflix/Spotify", "amount": 30.0 },
+    { "description": "Odeca", "amount": 200.0 },
+    { "description": "Putovanja", "amount": 300.0 }
+  ],
+  "metadata": {
+    "currency": "EUR",
+    "lastUpdated": "2024-03-14T12:00:00.000Z",
+    "version": "1.0.0",
+    "categories": {
+      "income": [
+        "Plata",
+        "Freelance",
+        "Dividende",
+        "Renta",
+        "Dodatni Poslovi",
+        "Investicije",
+        "Ostali Prihodi"
+      ],
+      "expenses": [
+        "Stanarina",
+        "Racuni",
+        "Hrana",
+        "Transport",
+        "Osiguranje",
+        "Internet/Telefon",
+        "Teretana",
+        "Streaming",
+        "Odeca",
+        "Putovanja"
+      ]
+    }
+  }
+}
