@@ -1,24 +1,24 @@
 {
   "income": [
-    { "description": "Plata", "amount": 3500.0 },
-    { "description": "Freelance", "amount": 1200.0 },
-    { "description": "Dividende", "amount": 800.0 },
-    { "description": "Renta", "amount": 600.0 },
-    { "description": "Dodatni Poslovi", "amount": 400.0 },
-    { "description": "Investicije", "amount": 300.0 },
-    { "description": "Ostali Prihodi", "amount": 200.0 }
+    { "description": "Plata", "amount": 2500.0 },
+    { "description": "Freelance", "amount": 750.0 },
+    { "description": "Renta", "amount": 350.0 },
+    { "description": "Dodatni Poslovi", "amount": 300.0 },
+    { "description": "Investicije", "amount": 200.0 },
+    { "description": "Ostali Prihodi", "amount": 150.0 }
   ],
   "expenses": [
-    { "description": "Stanarina", "amount": 800.0 },
-    { "description": "Racuni", "amount": 250.0 },
-    { "description": "Hrana", "amount": 500.0 },
-    { "description": "Transport", "amount": 150.0 },
-    { "description": "Osiguranje", "amount": 100.0 },
-    { "description": "Internet/Telefon", "amount": 80.0 },
-    { "description": "Teretana", "amount": 40.0 },
-    { "description": "Netflix/Spotify", "amount": 30.0 },
-    { "description": "Odeca", "amount": 200.0 },
-    { "description": "Putovanja", "amount": 300.0 }
+    { "description": "Kredit", "amount": 950.0 },
+    { "description": "Stanarina", "amount": 500.0 },
+    { "description": "Racuni", "amount": 150.0 },
+    { "description": "Hrana", "amount": 300.0 },
+    { "description": "Transport", "amount": 100.0 },
+    { "description": "Osiguranje", "amount": 75.0 },
+    { "description": "Internet/Telefon", "amount": 50.0 },
+    { "description": "Teretana", "amount": 25.0 },
+    { "description": "Netflix/Spotify", "amount": 20.0 },
+    { "description": "Odeca", "amount": 125.0 },
+    { "description": "Putovanja", "amount": 200.0 }
   ],
   "metadata": {
     "currency": "EUR",
