@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/personal-asset-calculator/static/css/main.07c428be.css",
+    "main.js": "/personal-asset-calculator/static/js/main.32e37190.js",
+    "index.html": "/personal-asset-calculator/index.html",
+    "main.07c428be.css.map": "/personal-asset-calculator/static/css/main.07c428be.css.map",
+    "main.32e37190.js.map": "/personal-asset-calculator/static/js/main.32e37190.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07c428be.css",
+    "static/js/main.32e37190.js"
+  ]
+}
