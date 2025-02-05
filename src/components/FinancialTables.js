@@ -23,6 +23,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import InfoIcon from "@mui/icons-material/Info";
 import initialData from "../data/initialData.json";
 import Swal from "sweetalert2";
 import { translations } from "../translations";
@@ -453,7 +454,7 @@ const FinancialTables = ({ language }) => {
                 boxShadow: "none",
                 border: "1px solid rgba(224, 224, 224, 1)",
                 width: "100%",
-                minWidth: "250px",
+                minWidth: "300px",
                 maxWidth: "100%",
                 borderRadius: "4px",
                 overflow: "hidden",
@@ -583,7 +584,7 @@ const FinancialTables = ({ language }) => {
           <Box
             sx={{
               width: "100%",
-              maxWidth: 450,
+              maxWidth: 540,
               height: 360,
               display: "flex",
               alignItems: "center",
@@ -595,36 +596,12 @@ const FinancialTables = ({ language }) => {
               padding: 2,
               backgroundColor: "white",
               boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
+              position: "relative",
             }}
           >
             <Doughnut
               data={getChartData(entries, isIncome ? "Prihodi" : "Rashodi")}
-              options={{
-                ...chartOptions,
-                plugins: {
-                  ...chartOptions.plugins,
-                  legend: {
-                    ...chartOptions.plugins.legend,
-                    position: "right",
-                    labels: {
-                      ...chartOptions.plugins.legend.labels,
-                      font: {
-                        size: 11.5,
-                      },
-                      padding: 6,
-                      boxWidth: 14,
-                      boxHeight: 14,
-                    },
-                  },
-                  datalabels: {
-                    ...chartOptions.plugins.datalabels,
-                    font: {
-                      size: 13,
-                      weight: "bold",
-                    },
-                  },
-                },
-              }}
+              options={chartOptions}
             />
           </Box>
         </Grid>
@@ -644,8 +621,20 @@ const FinancialTables = ({ language }) => {
 
     return (
       <Grid container spacing={0.5} sx={{ mb: 1 }}>
-        <Grid item xs={12} sm={6} md={2.5}>
-          <Paper sx={{ p: 0.75, bgcolor: "#4a6da7", color: "white" }}>
+        <Grid item xs={12} sm={6} md={2.6}>
+          <Paper
+            sx={{
+              p: 0.75,
+              bgcolor: "#4a6da7",
+              color: "white",
+              transition:
+                "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
+              "&:hover": {
+                transform: "translateY(-2px)",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+              },
+            }}
+          >
             <Typography variant="subtitle2" sx={{ fontSize: "0.65rem" }}>
               {t.summary.totalIncome}
             </Typography>
@@ -654,8 +643,20 @@ const FinancialTables = ({ language }) => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6} md={2.5}>
-          <Paper sx={{ p: 0.75, bgcolor: "#e17055", color: "white" }}>
+        <Grid item xs={12} sm={6} md={2.7}>
+          <Paper
+            sx={{
+              p: 0.75,
+              bgcolor: "#e17055",
+              color: "white",
+              transition:
+                "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
+              "&:hover": {
+                transform: "translateY(-2px)",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+              },
+            }}
+          >
             <Typography variant="subtitle2" sx={{ fontSize: "0.65rem" }}>
               {t.summary.totalExpenses}
             </Typography>
@@ -664,12 +665,18 @@ const FinancialTables = ({ language }) => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6} md={2.5}>
+        <Grid item xs={12} sm={6} md={2.7}>
           <Paper
             sx={{
               p: 0.75,
               bgcolor: isPositive ? "#00b894" : "#d63031",
               color: "white",
+              transition:
+                "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
+              "&:hover": {
+                transform: "translateY(-2px)",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+              },
             }}
           >
             <Typography variant="subtitle2" sx={{ fontSize: "0.65rem" }}>
@@ -680,12 +687,18 @@ const FinancialTables = ({ language }) => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6} md={2.5}>
+        <Grid item xs={12} sm={6} md={2.7}>
           <Paper
             sx={{
               p: 0.75,
               bgcolor: "#6c5ce7",
               color: "white",
+              transition:
+                "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
+              "&:hover": {
+                transform: "translateY(-2px)",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+              },
             }}
           >
             <Typography variant="subtitle2" sx={{ fontSize: "0.65rem" }}>
@@ -700,11 +713,12 @@ const FinancialTables = ({ language }) => {
           item
           xs={12}
           sm={12}
-          md={2}
+          md={1.3}
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: { xs: "center", md: "flex-start" },
+            justifyContent: "flex-end",
+            height: "100%",
           }}
         >
           <input
@@ -714,42 +728,42 @@ const FinancialTables = ({ language }) => {
             accept=".json"
             onChange={handleImport}
           />
-          <Stack direction="row" spacing={1}>
+          <Stack direction="row" spacing={0.5}>
             <IconButton
               onClick={() => fileInputRef.current.click()}
               size="small"
               sx={{
-                padding: 1,
+                padding: 0.75,
                 borderRadius: 1,
                 border: "1px solid rgba(0, 0, 0, 0.12)",
                 color: "#666",
-                width: "40px",
-                height: "40px",
+                width: "32px",
+                height: "32px",
                 "&:hover": {
                   borderColor: "rgba(0, 0, 0, 0.24)",
                   bgcolor: "rgba(0, 0, 0, 0.04)",
                 },
               }}
             >
-              <FileUploadIcon sx={{ fontSize: "1.5rem" }} />
+              <FileUploadIcon sx={{ fontSize: "1.3rem" }} />
             </IconButton>
             <IconButton
               onClick={handleExport}
               size="small"
               sx={{
-                padding: 1,
+                padding: 0.75,
                 borderRadius: 1,
                 border: "1px solid rgba(0, 0, 0, 0.12)",
                 color: "#666",
-                width: "40px",
-                height: "40px",
+                width: "32px",
+                height: "32px",
                 "&:hover": {
                   borderColor: "rgba(0, 0, 0, 0.24)",
                   bgcolor: "rgba(0, 0, 0, 0.04)",
                 },
               }}
             >
-              <FileDownloadIcon sx={{ fontSize: "1.5rem" }} />
+              <FileDownloadIcon sx={{ fontSize: "1.3rem" }} />
             </IconButton>
           </Stack>
         </Grid>
@@ -812,7 +826,148 @@ const FinancialTables = ({ language }) => {
   };
 
   return (
-    <Box sx={{ p: 0.5 }}>
+    <Box
+      sx={{
+        p: 0.5,
+        position: "relative",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: `
+            linear-gradient(120deg,
+              rgba(74, 109, 167, 0.08) 0%,
+              rgba(108, 92, 231, 0.08) 25%,
+              rgba(0, 184, 148, 0.08) 50%,
+              rgba(225, 112, 85, 0.08) 75%,
+              rgba(74, 109, 167, 0.08) 100%
+            )
+          `,
+          backgroundSize: "400% 400%",
+          animation: "gradientBG 20s ease infinite",
+          zIndex: -1,
+          borderRadius: "12px",
+        },
+        "&::after": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: `
+            radial-gradient(circle at 50% 50%,
+              rgba(255, 255, 255, 0.1) 0%,
+              transparent 70%
+            ),
+            radial-gradient(circle at 0% 0%,
+              rgba(74, 109, 167, 0.08) 0%,
+              transparent 50%
+            ),
+            radial-gradient(circle at 100% 100%,
+              rgba(0, 184, 148, 0.08) 0%,
+              transparent 50%
+            )
+          `,
+          backgroundSize: "200% 200%, 100% 100%, 100% 100%",
+          animation: "cosmicDust 15s ease infinite",
+          zIndex: -1,
+          opacity: 0.8,
+          mixBlendMode: "soft-light",
+        },
+        "@keyframes gradientBG": {
+          "0%": {
+            backgroundPosition: "0% 50%",
+            backgroundSize: "400% 400%",
+          },
+          "50%": {
+            backgroundPosition: "100% 50%",
+            backgroundSize: "300% 300%",
+          },
+          "100%": {
+            backgroundPosition: "0% 50%",
+            backgroundSize: "400% 400%",
+          },
+        },
+        "@keyframes cosmicDust": {
+          "0%": {
+            backgroundPosition: "0% 0%, 0% 0%, 100% 100%",
+            filter: "hue-rotate(0deg)",
+          },
+          "50%": {
+            backgroundPosition: "100% 100%, 100% 0%, 0% 100%",
+            filter: "hue-rotate(15deg)",
+          },
+          "100%": {
+            backgroundPosition: "0% 0%, 0% 0%, 100% 100%",
+            filter: "hue-rotate(0deg)",
+          },
+        },
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: 1,
+          mb: 1,
+          p: 1,
+          borderRadius: "12px",
+          background: `
+            linear-gradient(135deg,
+              rgba(74, 109, 167, 0.12) 0%,
+              rgba(74, 109, 167, 0.18) 100%
+            )
+          `,
+          border: "1px solid rgba(74, 109, 167, 0.25)",
+          backdropFilter: "blur(8px)",
+          boxShadow: "0 4px 6px rgba(0,0,0,0.05)",
+          position: "relative",
+          overflow: "hidden",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: `
+              linear-gradient(90deg,
+                transparent,
+                rgba(255,255,255,0.2),
+                transparent
+              )
+            `,
+            transform: "translateX(-100%)",
+            animation: "shimmer 3s infinite ease-in-out",
+          },
+          "@keyframes shimmer": {
+            "0%": {
+              transform: "translateX(-100%) skewX(-15deg)",
+            },
+            "100%": {
+              transform: "translateX(100%) skewX(-15deg)",
+            },
+          },
+        }}
+      >
+        <InfoIcon sx={{ fontSize: "1.2rem", color: "#4a6da7" }} />
+        <Typography
+          variant="body2"
+          sx={{
+            color: "#4a6da7",
+            fontSize: "0.9rem",
+            fontWeight: 500,
+            lineHeight: 1.2,
+          }}
+        >
+          Sample data loaded - Use import/export buttons in the top right to
+          manage your data
+        </Typography>
+      </Box>
       {renderSummary()}
       {renderTable(true, incomeEntries, setIncomeEntries)}
       {renderTable(false, expenseEntries, setExpenseEntries)}
