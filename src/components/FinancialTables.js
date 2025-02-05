@@ -149,16 +149,25 @@ const FinancialTables = ({ language }) => {
     const total = calculateTotal(entries);
     const colors =
       title === "Prihodi"
-        ? ["#4a6da7", "#6384c6", "#7a9be5", "#92b2ff", "#a9c9ff"]
+        ? [
+            "rgba(74, 109, 167, 1)",
+            "rgba(99, 132, 198, 1)",
+            "rgba(122, 155, 229, 1)",
+            "rgba(146, 178, 255, 1)",
+            "rgba(169, 201, 255, 1)",
+          ]
         : [
-            "#e17055",
-            "#ff8c69",
-            "#ffa07a",
-            "#ffb38a",
-            "#ffc69a",
-            "#ffd9aa",
-            "#ffecba",
+            "rgba(225, 112, 85, 1)",
+            "rgba(255, 140, 105, 1)",
+            "rgba(255, 160, 122, 1)",
+            "rgba(255, 179, 138, 1)",
+            "rgba(255, 198, 154, 1)",
+            "rgba(255, 217, 170, 1)",
+            "rgba(255, 236, 186, 1)",
           ];
+
+    const hoverColors = colors.map((color) => color.replace("1)", "0.9)"));
+    const borderColors = colors.map((color) => color.replace("1)", "0.95)"));
 
     return {
       labels: entries.map((entry) => entry.description || "New Entry"),
@@ -166,8 +175,9 @@ const FinancialTables = ({ language }) => {
         {
           data: entries.map((entry) => entry.amount),
           backgroundColor: colors,
-          borderColor: colors.map((color) => color.replace("ff", "ee")),
-          borderWidth: 1,
+          hoverBackgroundColor: hoverColors,
+          borderColor: borderColors,
+          borderWidth: 2,
           percentages: entries.map((entry) =>
             ((entry.amount / total) * 100).toFixed(1)
           ),
@@ -203,6 +213,9 @@ const FinancialTables = ({ language }) => {
               index: index,
             }));
           },
+          usePointStyle: true,
+          pointStyle: "circle",
+          padding: 15,
         },
       },
       tooltip: {
@@ -220,6 +233,20 @@ const FinancialTables = ({ language }) => {
             ];
           },
         },
+        backgroundColor: "rgba(255, 255, 255, 0.9)",
+        titleColor: "#666",
+        bodyColor: "#666",
+        titleFont: { size: 12, weight: "bold" },
+        bodyFont: { size: 11 },
+        padding: 12,
+        boxPadding: 6,
+        usePointStyle: true,
+        borderColor: "rgba(0,0,0,0.1)",
+        borderWidth: 1,
+        animation: {
+          duration: 400,
+          easing: "easeOutQuart",
+        },
       },
       datalabels: {
         color: "white",
@@ -236,13 +263,51 @@ const FinancialTables = ({ language }) => {
         display: function (context) {
           const value = context.dataset.data[context.dataIndex];
           const total = context.dataset.data.reduce((sum, val) => sum + val, 0);
-          return (value / total) * 100 > 5; // Only show label if segment is > 5%
+          return (value / total) * 100 > 5;
         },
+        offset: 8,
+        textStrokeColor: "rgba(0,0,0,0.3)",
+        textStrokeWidth: 2,
+        textShadowBlur: 3,
+        textShadowColor: "rgba(0,0,0,0.3)",
       },
     },
     cutout: "60%",
+    radius: "90%",
     responsive: true,
     maintainAspectRatio: false,
+    animation: {
+      animateScale: true,
+      animateRotate: true,
+      duration: 1000,
+      easing: "easeInOutQuart",
+    },
+    hover: {
+      mode: "nearest",
+      intersect: true,
+      animationDuration: 200,
+    },
+    transitions: {
+      active: {
+        animation: {
+          duration: 300,
+        },
+      },
+    },
+    elements: {
+      arc: {
+        borderWidth: 2,
+        borderColor: "white",
+        hoverBorderWidth: 3,
+        hoverBorderColor: "white",
+        hoverOffset: 5,
+      },
+    },
+    interaction: {
+      mode: "nearest",
+      intersect: true,
+      includeInvisible: false,
+    },
   };
 
   const renderTable = (isIncome, entries, setEntries) => {
