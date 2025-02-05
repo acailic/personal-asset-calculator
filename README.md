@@ -12,3 +12,5 @@ A simple application to manage and analyze personal assets, built with [Create R
 - **Run tests**: `npm test` - Starts the test runner in interactive mode.
 - **Build for production**: `npm run build` - Compiles the app into the `build` folder for deployment.
 - **Eject configuration**: `npm run eject` - Exposes configuration files for customization (one-way operation).
+
+-- **Deploy gh-pages**: `npm run deploy` - Deploy the app to gh-pages.
